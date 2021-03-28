@@ -1,10 +1,10 @@
 public class Student implements Comparable<Student> {
-    int roll;
+    Integer roll;
     String name;
-    double marks;
-    boolean pass;
+    Integer marks;
+    Boolean pass;
 
-    public Student(int roll, String name, double marks) {
+    public Student(Integer roll, String name, Integer marks) {
         this.roll = roll;
         this.name = name;
         this.marks = marks;
@@ -12,7 +12,7 @@ public class Student implements Comparable<Student> {
     }
 
     public static Student getRandomStudentData() {
-        return new Student(1000 + Random.intValue(1000), Random.string(9), Math.round(Random.doubleValue(100) * 100.0) / 100.0);
+        return new Student(1000 + Random.intValue(1000), Random.string(9), Random.intValue(100));
     }
 
     private boolean checkIfPass() {
@@ -23,13 +23,24 @@ public class Student implements Comparable<Student> {
         return pass ? "Pass" : "Fail";
     }
 
-    @Override
-    public int compareTo(Student that) {
-        return (int) (this.marks - that.marks);
+    public static void printArray(Student[] students) {
+        StringBuilder stringBuffer = new StringBuilder();
+        stringBuffer.append("[\n");
+        for (Student student : students)
+            stringBuffer.append("  ").append(student).append("\n");
+        stringBuffer.append("]");
+        System.out.println(stringBuffer.toString());
     }
 
     @Override
     public String toString() {
         return "Student: { roll: " + roll + ", name: " + name + ", marks: " + marks + ", result: " + isPass() + " }";
+    }
+
+    @Override
+    public int compareTo(Student that) {
+        return this.marks - that.marks;
+//        return (this.roll - that.roll);
+//        return this.name.compareTo(that.name);
     }
 }
