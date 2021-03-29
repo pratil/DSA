@@ -14,6 +14,18 @@ public interface Sort<P extends Comparable<P>> {
         return compare(array, first, second) > 0;
     }
 
+    default int compare(P first, P second) {
+        return first.compareTo(second);
+    }
+
+    default boolean isLess(P first, P second) {
+        return compare(first, second) < 0;
+    }
+
+    default boolean isGreater(P first, P second) {
+        return compare(first, second) > 0;
+    }
+
     default void swap(P[] array, int first, int second) {
         P temp = array[first];
         array[first] = array[second];

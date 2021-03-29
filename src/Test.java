@@ -1,4 +1,5 @@
 import queue.Queue;
+import sort.Insertion;
 import sort.Order;
 import sort.Selection;
 import stack.Stack;
@@ -43,6 +44,22 @@ public class Test {
         System.out.println("Student array after sorting in " + Order.Ascending + " order");
         Student.printArray(students);
         selection.sort(students, Order.Descending);
+        System.out.println("Student array after sorting in " + Order.Descending + " order");
+        Student.printArray(students);
+    }
+
+    public static void studentInsertionSort() {
+        Insertion<Student> insertion = new Insertion<>();
+        Student[] students = new Student[10];
+        int length = students.length;
+        for (int i = 0; i < length; i++)
+            students[i] = Student.getRandomStudentData();
+        System.out.println("Student array before sorting");
+        Student.printArray(students);
+        insertion.sort(students);
+        System.out.println("Student array after sorting in " + Order.Ascending + " order");
+        Student.printArray(students);
+        insertion.sort(students, Order.Descending);
         System.out.println("Student array after sorting in " + Order.Descending + " order");
         Student.printArray(students);
     }
