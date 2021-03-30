@@ -1,3 +1,5 @@
+package util;
+
 public class Random {
     private static final int DEFAULT_DOUBLE = 100;
     private static final int DEFAULT_INTEGER = 100;

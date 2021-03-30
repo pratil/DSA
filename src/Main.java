@@ -3,6 +3,8 @@ public class Main {
 //        Test.studentStack();
 //        Test.studentQueue();
 //        Test.studentSelectionSort();
-        Test.studentInsertionSort();
+//        Test.studentInsertionSort();
+//        Test.integerShuffle();
+
     }
 }

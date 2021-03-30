@@ -1,8 +1,13 @@
+package util;
+
 import queue.Queue;
 import sort.Insertion;
 import sort.Order;
 import sort.Selection;
+import sort.Shuffle;
 import stack.Stack;
+
+import java.util.Arrays;
 
 public class Test {
     public static void studentStack() {
@@ -62,5 +67,16 @@ public class Test {
         insertion.sort(students, Order.Descending);
         System.out.println("Student array after sorting in " + Order.Descending + " order");
         Student.printArray(students);
+    }
+
+    public static void integerShuffle() {
+        Shuffle<Integer> shuffle = new Shuffle<>();
+        int length = 10;
+        Integer[] integers = new Integer[length];
+        for (int i = 0; i < length; i++)
+            integers[i] = i;
+        System.out.println(Arrays.toString(integers));
+        shuffle.getRandomisedArray(integers);
+        System.out.println(Arrays.toString(integers));
     }
 }
