@@ -1,10 +1,7 @@
 package util;
 
 import queue.Queue;
-import sort.Insertion;
-import sort.Order;
-import sort.Selection;
-import sort.Shuffle;
+import sort.*;
 import stack.Stack;
 
 import java.util.Arrays;
@@ -38,9 +35,9 @@ public class Test {
     }
 
     public static void studentSelectionSort() {
-        Selection<Student> selection = new Selection<>();
-        Student[] students = new Student[10];
-        int length = students.length;
+        Sort<Student> selection = new Selection<>();
+        int length = 10;
+        Student[] students = new Student[length];
         for (int i = 0; i < length; i++)
             students[i] = Student.getRandomStudentData();
         System.out.println("Student array before sorting");
@@ -54,9 +51,9 @@ public class Test {
     }
 
     public static void studentInsertionSort() {
-        Insertion<Student> insertion = new Insertion<>();
-        Student[] students = new Student[10];
-        int length = students.length;
+        Sort<Student> insertion = new Insertion<>();
+        int length = 10;
+        Student[] students = new Student[length];
         for (int i = 0; i < length; i++)
             students[i] = Student.getRandomStudentData();
         System.out.println("Student array before sorting");
@@ -79,4 +76,21 @@ public class Test {
         shuffle.getRandomisedArray(integers);
         System.out.println(Arrays.toString(integers));
     }
+
+    public static void studentMergeSort() {
+        Sort<Student> merge = new Merge<>();
+        int length = 10;
+        Student[] students = new Student[length];
+        for (int i = 0; i < length; i++)
+            students[i] = Student.getRandomStudentData();
+        System.out.println("Student array before sorting");
+        Student.printArray(students);
+        merge.sort(students);
+        System.out.println("Student array after sorting in " + Order.Ascending + " order");
+        Student.printArray(students);
+        merge.sort(students, Order.Descending);
+        System.out.println("Student array after sorting in " + Order.Descending + " order");
+        Student.printArray(students);
+    }
+
 }

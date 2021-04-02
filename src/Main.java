@@ -1,3 +1,5 @@
+import util.Test;
+
 public class Main {
     public static void main(String[] args) {
 //        Test.studentStack();
@@ -5,6 +7,6 @@ public class Main {
 //        Test.studentSelectionSort();
 //        Test.studentInsertionSort();
 //        Test.integerShuffle();
-
+        Test.studentMergeSort();
     }
 }

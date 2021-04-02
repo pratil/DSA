@@ -47,8 +47,7 @@ public interface Sort<P extends Comparable<P>> {
                 sortDescending(array);
                 break;
         }
-        if (!isSorted(array, order))
-            throw new NotSortedException(order);
+        assertSorted(array, order);
     }
 
     default void sort(P[] array) {
@@ -70,5 +69,10 @@ public interface Sort<P extends Comparable<P>> {
                 break;
         }
         return true;
+    }
+
+    default void assertSorted(P[] array, Order order) throws NotSortedException {
+        if (!isSorted(array, order))
+            throw new NotSortedException(order);
     }
 }
