@@ -93,4 +93,19 @@ public class Test {
         Student.printArray(students);
     }
 
+    public static void studentHeapSort() {
+        Sort<Student> heap = new Heap<>();
+        int length = 10;
+        Student[] students = new Student[length];
+        for (int i = 0; i < length; i++)
+            students[i] = Student.getRandomStudentData();
+        System.out.println("Student array before sorting");
+        Student.printArray(students);
+        heap.sort(students);
+        System.out.println("Student array after sorting in " + Order.Ascending + " order");
+        Student.printArray(students);
+        heap.sort(students, Order.Descending);
+        System.out.println("Student array after sorting in " + Order.Descending + " order");
+        Student.printArray(students);
+    }
 }

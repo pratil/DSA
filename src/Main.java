@@ -7,6 +7,7 @@ public class Main {
 //        Test.studentSelectionSort();
 //        Test.studentInsertionSort();
 //        Test.integerShuffle();
-        Test.studentMergeSort();
+//        Test.studentMergeSort();
+        Test.studentHeapSort();
     }
 }

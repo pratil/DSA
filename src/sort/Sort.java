@@ -59,12 +59,12 @@ public interface Sort<P extends Comparable<P>> {
         switch (order) {
             case Ascending:
                 for (int i = 0; i < length - 1; i++)
-                    if (isGreater(array, i, i + 1))
+                    if (isGreater(array[i], array[i + 1]))
                         return false;
                 break;
             case Descending:
                 for (int i = 0; i < length - 1; i++)
-                    if (isLess(array, i, i + 1))
+                    if (isLess(array[i], array[i + 1]))
                         return false;
                 break;
         }
