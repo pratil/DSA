@@ -3,6 +3,11 @@ package sort;
 public class Merge<P extends Comparable<P>> implements Sort<P> {
 
     @Override
+    public String getName() {
+        return "Merge Sort";
+    }
+
+    @Override
     public void sortAscending(P[] array) {
         int length = array.length;
         P[] auxiliaryArray = array.clone();

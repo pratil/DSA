@@ -34,36 +34,35 @@ public class Test {
         System.out.println("studentQueue.isEmpty()=> " + studentQueue.isEmpty());
     }
 
-    public static void studentSelectionSort() {
-        Sort<Student> selection = new Selection<>();
-        int length = 10;
+    private static void studentSort(Sort<Student> method, int length) {
+        Order order;
         Student[] students = new Student[length];
         for (int i = 0; i < length; i++)
             students[i] = Student.getRandomStudentData();
         System.out.println("Student array before sorting");
         Student.printArray(students);
-        selection.sort(students);
-        System.out.println("Student array after sorting in " + Order.Ascending + " order");
+        order = Order.Ascending;
+        method.sort(students, order);
+        System.out.println("Student array after sorting in " + order + " order");
         Student.printArray(students);
-        selection.sort(students, Order.Descending);
-        System.out.println("Student array after sorting in " + Order.Descending + " order");
+        order = Order.Descending;
+        method.sort(students, order);
+        System.out.println("Student array after sorting in " + order + " order");
         Student.printArray(students);
+    }
+
+    private static void studentSort(Sort<Student> method) {
+        studentSort(method, 10);
+    }
+
+    public static void studentSelectionSort() {
+        Sort<Student> selection = new Selection<>();
+        studentSort(selection);
     }
 
     public static void studentInsertionSort() {
         Sort<Student> insertion = new Insertion<>();
-        int length = 10;
-        Student[] students = new Student[length];
-        for (int i = 0; i < length; i++)
-            students[i] = Student.getRandomStudentData();
-        System.out.println("Student array before sorting");
-        Student.printArray(students);
-        insertion.sort(students);
-        System.out.println("Student array after sorting in " + Order.Ascending + " order");
-        Student.printArray(students);
-        insertion.sort(students, Order.Descending);
-        System.out.println("Student array after sorting in " + Order.Descending + " order");
-        Student.printArray(students);
+        studentSort(insertion);
     }
 
     public static void integerShuffle() {
@@ -79,33 +78,11 @@ public class Test {
 
     public static void studentMergeSort() {
         Sort<Student> merge = new Merge<>();
-        int length = 10;
-        Student[] students = new Student[length];
-        for (int i = 0; i < length; i++)
-            students[i] = Student.getRandomStudentData();
-        System.out.println("Student array before sorting");
-        Student.printArray(students);
-        merge.sort(students);
-        System.out.println("Student array after sorting in " + Order.Ascending + " order");
-        Student.printArray(students);
-        merge.sort(students, Order.Descending);
-        System.out.println("Student array after sorting in " + Order.Descending + " order");
-        Student.printArray(students);
+        studentSort(merge);
     }
 
     public static void studentHeapSort() {
         Sort<Student> heap = new Heap<>();
-        int length = 10;
-        Student[] students = new Student[length];
-        for (int i = 0; i < length; i++)
-            students[i] = Student.getRandomStudentData();
-        System.out.println("Student array before sorting");
-        Student.printArray(students);
-        heap.sort(students);
-        System.out.println("Student array after sorting in " + Order.Ascending + " order");
-        Student.printArray(students);
-        heap.sort(students, Order.Descending);
-        System.out.println("Student array after sorting in " + Order.Descending + " order");
-        Student.printArray(students);
+        studentSort(heap);
     }
 }

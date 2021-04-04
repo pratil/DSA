@@ -2,6 +2,11 @@ package sort;
 
 public class Selection<P extends Comparable<P>> implements Sort<P> {
 
+    @Override
+    public String getName() {
+        return "Selection Sort";
+    }
+
     private int findMinimum(P[] array, int startIndex, int endIndex) {
         int minimumIndex = startIndex;
         for (int i = startIndex + 1; i <= endIndex; i++)

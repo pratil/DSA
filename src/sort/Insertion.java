@@ -1,6 +1,12 @@
 package sort;
 
 public class Insertion<P extends Comparable<P>> implements Sort<P> {
+
+    @Override
+    public String getName() {
+        return "Insertion Sort";
+    }
+
     @Override
     public void sortAscending(P[] array) {
         int length = array.length, j;

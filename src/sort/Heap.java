@@ -3,6 +3,11 @@ package sort;
 public class Heap<P extends Comparable<P>> implements Sort<P> {
 
     @Override
+    public String getName() {
+        return "Heap Sort";
+    }
+
+    @Override
     public boolean isGreater(P[] array, int first, int second) {
         return compare(array, first - 1, second - 1) > 0;
     }

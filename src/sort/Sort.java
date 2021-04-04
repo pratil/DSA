@@ -2,6 +2,8 @@ package sort;
 
 public interface Sort<P extends Comparable<P>> {
 
+    String getName();
+
     default int compare(P[] array, int first, int second) {
         return array[first].compareTo(array[second]);
     }
@@ -39,15 +41,23 @@ public interface Sort<P extends Comparable<P>> {
     default void sort(P[] array, Order order) {
         if (array.length <= 1)
             return;
+        StopWatch stopWatch;
+        double timeTakenToSort = 0;
         switch (order) {
             case Ascending:
+                stopWatch = new StopWatch();
                 sortAscending(array);
+                timeTakenToSort = stopWatch.getTime();
                 break;
             case Descending:
+                stopWatch = new StopWatch();
                 sortDescending(array);
+                timeTakenToSort = stopWatch.getTime();
                 break;
         }
         assertSorted(array, order);
+        System.out.println(getName() + " took " + timeTakenToSort + " seconds to sort" +
+                " an Array of " + array[0].getClass().getName() + " in " + order + " order, of size " + array.length);
     }
 
     default void sort(P[] array) {
