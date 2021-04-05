@@ -85,4 +85,9 @@ public class Test {
         Sort<Student> heap = new Heap<>();
         studentSort(heap);
     }
+
+    public static void studentQuickSort() {
+        Sort<Student> quick = new Quick<>();
+        studentSort(quick, 1000);
+    }
 }
