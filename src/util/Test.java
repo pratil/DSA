@@ -1,5 +1,7 @@
 package util;
 
+import binaryHeap.MaxHeapTree;
+import binaryHeap.MinHeapTree;
 import queue.Queue;
 import sort.*;
 import stack.Stack;
@@ -90,4 +92,29 @@ public class Test {
         Sort<Student> quick = new Quick<>();
         studentSort(quick, 1000);
     }
+
+    public static void studentMaxHeapTree() {
+        MaxHeapTree<Student> maxHeapTree = new MaxHeapTree<>();
+        int length = 10;
+        System.out.println(maxHeapTree);
+        for (int i = 0; i < length; i++)
+            System.out.println(maxHeapTree.insert(Student.getRandomStudentData()));
+        System.out.println(maxHeapTree);
+        for (int i = 0; i < length; i++)
+            System.out.println("size: " + maxHeapTree.size() + " data: " + maxHeapTree.delete());
+        System.out.println(maxHeapTree);
+    }
+
+    public static void studentMinHeapTree() {
+        MinHeapTree<Student> minHeapTree = new MinHeapTree<>();
+        int length = 10;
+        System.out.println(minHeapTree);
+        for (int i = 0; i < length; i++)
+            System.out.println(minHeapTree.insert(Student.getRandomStudentData()));
+        System.out.println(minHeapTree);
+        for (int i = 0; i < length; i++)
+            System.out.println("size: " + minHeapTree.size() + " data: " + minHeapTree.delete());
+        System.out.println(minHeapTree);
+    }
+
 }

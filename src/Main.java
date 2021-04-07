@@ -9,6 +9,8 @@ public class Main {
 //        Test.integerShuffle();
 //        Test.studentMergeSort();
 //        Test.studentHeapSort();
-        Test.studentQuickSort();
+//        Test.studentQuickSort();
+//        Test.studentMaxHeapTree();
+        Test.studentMinHeapTree();
     }
 }

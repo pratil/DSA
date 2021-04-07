@@ -41,7 +41,7 @@ public class Student implements Comparable<Student> {
 
     @Override
     public int compareTo(Student that) {
-        return this.marks - that.marks;
+        return (this.marks - that.marks);
 //        return (this.roll - that.roll);
 //        return this.name.compareTo(that.name);
     }
