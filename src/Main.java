@@ -11,6 +11,7 @@ public class Main {
 //        Test.studentHeapSort();
 //        Test.studentQuickSort();
 //        Test.studentMaxHeapTree();
-        Test.studentMinHeapTree();
+//        Test.studentMinHeapTree();
+        Test.studentBST();
     }
 }
