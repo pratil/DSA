@@ -4,6 +4,34 @@ import java.util.ArrayList;
 
 public class BST<Key extends Comparable<Key>, Value> {
 
+    private class TreeNode implements Comparable<TreeNode> {
+        Key key;
+        Value value;
+        TreeNode left;
+        TreeNode right;
+        int count;
+
+        public TreeNode(Key key, Value value) {
+            this.key = key;
+            this.value = value;
+            left = null;
+            right = null;
+        }
+
+        public TreeNode(Key key, Value value, TreeNode left, TreeNode right) {
+            this.key = key;
+            this.value = value;
+            this.left = left;
+            this.right = right;
+        }
+
+        @Override
+        public int compareTo(TreeNode that) {
+            return this.key.compareTo(that.key);
+        }
+
+    }
+
     TreeNode root;
 
     public BST() {
@@ -225,31 +253,4 @@ public class BST<Key extends Comparable<Key>, Value> {
         return rank(end) - rank(start) + ((get(end) != null) ? 1 : 0);
     }
 
-    private class TreeNode implements Comparable<TreeNode> {
-        Key key;
-        Value value;
-        TreeNode left;
-        TreeNode right;
-        int count;
-
-        public TreeNode(Key key, Value value) {
-            this.key = key;
-            this.value = value;
-            left = null;
-            right = null;
-        }
-
-        public TreeNode(Key key, Value value, TreeNode left, TreeNode right) {
-            this.key = key;
-            this.value = value;
-            this.left = left;
-            this.right = right;
-        }
-
-        @Override
-        public int compareTo(TreeNode that) {
-            return this.key.compareTo(that.key);
-        }
-
-    }
 }
