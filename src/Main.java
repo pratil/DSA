@@ -13,6 +13,7 @@ public class Main {
 //        Test.studentMaxHeapTree();
 //        Test.studentMinHeapTree();
 //        Test.studentBST();
-        Test.studentRedBlackBST();
+//        Test.studentRedBlackBST();
+        Test.compareBSTAndRedBlackBST();
     }
 }

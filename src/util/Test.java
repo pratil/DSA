@@ -226,4 +226,45 @@ public class Test {
         System.out.println("RedBlackBST all keys between (" + start + ", " + end + "): " + studentRedBlackBST.rangeKeys(start, end));
     }
 
+    public static void compareBSTAndRedBlackBST() {
+        int length = 8191; // for (power of 2) - 1 RedBlackBST is fully balanced in all cases
+        BST<Integer, Student> bst;
+        RedBlackBST<Integer, Student> redBlackBST;
+        Student student;
+        System.out.println("--------------------------------------");
+        bst = new BST<>();
+        redBlackBST = new RedBlackBST<>();
+        System.out.println("1. Random insertions");
+        for (int i = 0; i < length; i++) {
+            student = Student.getRandomStudentData();
+            bst.put(student.roll, student);
+            redBlackBST.put(student.roll, student);
+        }
+        bst.printSizeLeftAndRightSubtrees();
+        redBlackBST.printSizeLeftAndRightSubtrees();
+        System.out.println("--------------------------------------");
+        bst = new BST<>();
+        redBlackBST = new RedBlackBST<>();
+        System.out.println("2. Ascending insertions");
+        for (int i = 0; i < length; i++) {
+            student = Student.getRandomStudentData();
+            bst.put(i, student);
+            redBlackBST.put(i, student);
+        }
+        bst.printSizeLeftAndRightSubtrees();
+        redBlackBST.printSizeLeftAndRightSubtrees();
+        System.out.println("--------------------------------------");
+        bst = new BST<>();
+        redBlackBST = new RedBlackBST<>();
+        System.out.println("3. Descending insertions");
+        for (int i = 0; i < length; i++) {
+            student = Student.getRandomStudentData();
+            bst.put(length - i, student);
+            redBlackBST.put(length - i, student);
+        }
+        bst.printSizeLeftAndRightSubtrees();
+        redBlackBST.printSizeLeftAndRightSubtrees();
+        System.out.println("--------------------------------------");
+    }
+
 }

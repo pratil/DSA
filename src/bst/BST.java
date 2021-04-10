@@ -258,7 +258,7 @@ public class BST<Key extends Comparable<Key>, Value> {
     }
 
     public void printSizeLeftAndRightSubtrees() {
-        System.out.println("RedBlack BST");
+        System.out.println("BST");
         System.out.println("Tres size           : " + size());
         System.out.println("left sub-tree size  : " + size(root.left));
         System.out.println("right sub-tree size : " + size(root.right));
