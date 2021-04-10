@@ -2,40 +2,72 @@ package bst;
 
 import java.util.ArrayList;
 
-public class BST<Key extends Comparable<Key>, Value> {
-
-    private class TreeNode implements Comparable<TreeNode> {
-        Key key;
-        Value value;
-        TreeNode left;
-        TreeNode right;
-        int count;
-
-        public TreeNode(Key key, Value value) {
-            this.key = key;
-            this.value = value;
-            left = null;
-            right = null;
-        }
-
-        public TreeNode(Key key, Value value, TreeNode left, TreeNode right) {
-            this.key = key;
-            this.value = value;
-            this.left = left;
-            this.right = right;
-        }
-
-        @Override
-        public int compareTo(TreeNode that) {
-            return this.key.compareTo(that.key);
-        }
-
-    }
+//Left Leaning Red Black BST
+public class RedBlackBST<Key extends Comparable<Key>, Value>/* extends BST<Key, Value>*/ {
 
     private TreeNode root;
 
-    public BST() {
+    public RedBlackBST() {
         root = null;
+    }
+
+    public boolean isRed(TreeNode treeNode) {
+        return treeNode != null && (treeNode.colour == Colour.RED);
+    }
+
+    private void updateCount(TreeNode treeNode) {
+        treeNode.count = 1 + size(treeNode.left) + size(treeNode.right);
+    }
+
+    // if there is a right-leaning red link then we rotate it to left-leaning
+    private TreeNode rotateLeft(TreeNode first) {
+        assert isRed(first.right);
+        TreeNode second = first.right;
+        first.right = second.left;
+        second.left = first;
+        second.colour = first.colour;
+        first.colour = Colour.RED;
+        updateCount(first);
+        updateCount(second);
+        return second;
+    }
+
+    // Sometimes, we require to make a left-leaning red link to temporarily transform into a right-leaning link
+    private TreeNode rotateRight(TreeNode first) {
+        assert isRed(first.left);
+        TreeNode second = first.left;
+        first.left = second.right;
+        second.right = first;
+        second.colour = first.colour;
+        first.colour = Colour.RED;
+        updateCount(first);
+        updateCount(second);
+        return second;
+    }
+
+    private void flipColour(TreeNode treeNode) {
+//        assert !isRed(treeNode);
+        assert isRed(treeNode.left);
+        assert isRed(treeNode.right);
+        treeNode.colour = Colour.RED;
+        treeNode.left.colour = Colour.BLACK;
+        treeNode.right.colour = Colour.BLACK;
+    }
+
+    public Value get(Key key) {
+        return get(root, key);
+    }
+
+    private Value get(TreeNode root, Key key) {
+        if (root == null)
+            return null;
+        int compareTo = key.compareTo(root.key);
+        if (compareTo == 0)
+            return root.value;
+        else if (compareTo < 0)
+            return get(root.left, key);
+        else //if (compareTo > 0)
+            return get(root.right, key);
     }
 
     public void put(Key key, Value value) {
@@ -47,85 +79,29 @@ public class BST<Key extends Comparable<Key>, Value> {
             root = new TreeNode(key, value);
         else {
             int compareTo = key.compareTo(root.key);
-            if (compareTo < 0)
-                root.left = put(root.left, key, value);
-            else if (compareTo > 0)
-                root.right = put(root.right, key, value);
-            else
+            if (compareTo == 0)
                 root.value = value;
+            else if (compareTo < 0)
+                root.left = put(root.left, key, value);
+            else //if (compareTo > 0)
+                root.right = put(root.right, key, value);
+            if (!isRed(root.left) && isRed(root.right))
+                root = rotateLeft(root);
+            if (isRed(root.left) && isRed(root.left.left))
+                root = rotateRight(root);
+            if (isRed(root.left) && isRed(root.right))
+                flipColour(root);
         }
-        root.count = 1 + size(root.left) + size(root.right);
+        updateCount(root);
         return root;
     }
 
-    public Value get(Key key) {
-        if (key == null)
-            return null;
-        return get(root, key);
+    public int size() {
+        return size(root);
     }
 
-//    Get the element using without recursion
-//    public Value get(Key key) {
-//        TreeNode treeNode = root;
-//        while (treeNode != null) {
-//            if (key.compareTo(treeNode.key) < 0)
-//                treeNode = treeNode.left;
-//            else if (key.compareTo(treeNode.key) > 0)
-//                treeNode = treeNode.right;
-//            else
-//                return treeNode.value;
-//        }
-//        return null;
-//    }
-
-    private Value get(TreeNode root, Key key) {
-        if (root == null)
-            return null;
-        int compareTo = key.compareTo(root.key);
-        if (compareTo < 0)
-            return get(root.left, key);
-        else if (compareTo > 0)
-            return get(root.right, key);
-        else //if(compareTo == 0)
-            return root.value;
-    }
-
-    public Value delete(Key key) {
-        Value deletedValue = get(root, key);
-        if (deletedValue == null)
-            return null;
-        root = delete(root, key);
-        return deletedValue;
-    }
-
-    private TreeNode delete(TreeNode root, Key key) {
-        if (root == null)
-            return null;
-        int compareTo = key.compareTo(root.key);
-        if (compareTo < 0)
-            root.left = delete(root.left, key);
-        else if (compareTo > 0)
-            root.right = delete(root.right, key);
-        else { //if(compareTo == 0)
-            if (root.left == null)
-                return root.right;  // if both null, it'll return null
-            if (root.right == null)
-                return root.left;
-            TreeNode treeNode = root;
-            root = getMinimum(root.right);
-            root.right = deleteMinimum(treeNode.right);
-            root.left = treeNode.left;
-        }
-        root.count = 1 + size(root.left) + size(root.right);
-        return root;
-    }
-
-    private TreeNode deleteMinimum(TreeNode root) {
-        if (root.left == null)
-            return root.right;
-        root.left = deleteMinimum(root.left);
-        root.count = 1 + size(root.left) + size(root.right);
-        return root;
+    private int size(TreeNode treeNode) {
+        return (treeNode != null) ? treeNode.count : 0;
     }
 
     public Key getMinimum() {
@@ -192,14 +168,6 @@ public class BST<Key extends Comparable<Key>, Value> {
         }
     }
 
-    public int size() {
-        return size(root);
-    }
-
-    private int size(TreeNode treeNode) {
-        return (treeNode == null) ? 0 : treeNode.count;
-    }
-
     public int rank(Key key) {
         return rank(root, key);
     }
@@ -250,7 +218,7 @@ public class BST<Key extends Comparable<Key>, Value> {
     }
 
     public int rangeCount(Key start, Key end) {
-        return rank(end) - rank(start) + ((get(end) != null) ? 1 : 0);
+        return rank(end) - rank(start) + (containsKey(end) ? 1 : 0);
     }
 
     public boolean containsKey(Key key) {
@@ -264,4 +232,29 @@ public class BST<Key extends Comparable<Key>, Value> {
         System.out.println("right sub-tree size : " + size(root.right));
     }
 
+    private enum Colour {
+        BLACK, RED;
+    }
+
+    private class TreeNode implements Comparable<TreeNode> {
+        Key key;
+        Value value;
+        TreeNode left;
+        TreeNode right;
+        Colour colour;
+        int count;
+
+        public TreeNode(Key key, Value value) {
+            this.key = key;
+            this.value = value;
+            left = null;
+            right = null;
+            colour = Colour.RED;
+        }
+
+        @Override
+        public int compareTo(TreeNode that) {
+            return this.key.compareTo(that.key);
+        }
+    }
 }

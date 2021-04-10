@@ -3,6 +3,7 @@ package util;
 import binaryHeap.MaxHeapTree;
 import binaryHeap.MinHeapTree;
 import bst.BST;
+import bst.RedBlackBST;
 import queue.Queue;
 import sort.*;
 import stack.Stack;
@@ -133,13 +134,15 @@ public class Test {
         System.out.println("------------------------------------------------------------------------------");
         iterable = studentBST.keys();
         System.out.println("Items after insertion: " + iterable);
-        System.out.println("BST Size: " + studentBST.size());
+        studentBST.printSizeLeftAndRightSubtrees();
         int minimumKey = studentBST.getMinimum();
+        System.out.println("BST containsKey(" + minimumKey + "): -> " + studentBST.containsKey(minimumKey));
         System.out.println("BST minimum key: -> " + minimumKey + " value -> " + studentBST.get(minimumKey));
         System.out.println("BST rank of minimum key: -> " + studentBST.rank(minimumKey));
         System.out.println("BST floor value of minimum key - 1 : -> " + studentBST.floor(minimumKey - 1));
         System.out.println("BST ceil value of minimum key + 1 : -> " + studentBST.ceil(minimumKey + 1));
         int maximumKey = studentBST.getMaximum();
+        System.out.println("BST containsKey(" + maximumKey + "): -> " + studentBST.containsKey(maximumKey));
         System.out.println("BST maximum key: -> " + maximumKey + " value -> " + studentBST.get(maximumKey));
         System.out.println("BST rank of maximum key: -> " + studentBST.rank(maximumKey));
         System.out.println("BST floor value of maximum key - 1 : -> " + studentBST.floor(maximumKey - 1));
@@ -149,7 +152,8 @@ public class Test {
         minimumKey = studentBST.getMinimum();
         iterable = studentBST.keys();
         System.out.println("Items after deletion: " + iterable);
-        System.out.println("BST Size: " + studentBST.size());
+        studentBST.printSizeLeftAndRightSubtrees();
+        System.out.println("BST containsKey(" + minimumKey + "): -> " + studentBST.containsKey(minimumKey));
         System.out.println("BST minimum key: -> " + minimumKey + " value -> " + studentBST.get(minimumKey));
         System.out.println("BST rank of minimum key: -> " + studentBST.rank(minimumKey));
         System.out.println("BST floor value of minimum key - 1 : -> " + studentBST.floor(minimumKey - 1));
@@ -159,7 +163,8 @@ public class Test {
         maximumKey = studentBST.getMaximum();
         iterable = studentBST.keys();
         System.out.println("Items after deletion: " + iterable);
-        System.out.println("BST Size: " + studentBST.size());
+        studentBST.printSizeLeftAndRightSubtrees();
+        System.out.println("BST containsKey(" + maximumKey + "): -> " + studentBST.containsKey(maximumKey));
         System.out.println("BST maximum key: -> " + maximumKey + " value -> " + studentBST.get(maximumKey));
         System.out.println("BST rank of maximum key: -> " + studentBST.rank(maximumKey));
         System.out.println("BST floor value of maximum key - 1 : -> " + studentBST.floor(maximumKey - 1));
@@ -176,4 +181,49 @@ public class Test {
         System.out.println("BST count of all keys between (" + start + ", " + end + "): " + studentBST.rangeCount(start, end));
         System.out.println("BST all keys between (" + start + ", " + end + "): " + studentBST.rangeKeys(start, end));
     }
+
+    public static void studentRedBlackBST() {
+        int length = 10;
+        RedBlackBST<Integer, Student> studentRedBlackBST = new RedBlackBST<>();
+        Iterable<Integer> iterable = studentRedBlackBST.keys();
+        System.out.println("Items before insertion: " + iterable);
+        System.out.println("------------------------------------------------------------------------------");
+        Student student;
+        for (int i = 0; i < length - 1; i++) {
+            student = Student.getRandomStudentData();
+            System.out.println("Inserting: " + student);
+            studentRedBlackBST.put(student.roll, student);
+        }
+        student = studentRedBlackBST.get(studentRedBlackBST.getMaximum());
+        studentRedBlackBST.put(student.roll, student);
+        System.out.println("------------------------------------------------------------------------------");
+        iterable = studentRedBlackBST.keys();
+        System.out.println("Items after insertion: " + iterable);
+        studentRedBlackBST.printSizeLeftAndRightSubtrees();
+        int minimumKey = studentRedBlackBST.getMinimum();
+        System.out.println("RedBlackBST containsKey(" + minimumKey + "): -> " + studentRedBlackBST.containsKey(minimumKey));
+        System.out.println("RedBlackBST minimum key: -> " + minimumKey + " value -> " + studentRedBlackBST.get(minimumKey));
+        System.out.println("RedBlackBST rank of minimum key: -> " + studentRedBlackBST.rank(minimumKey));
+        System.out.println("RedBlackBST floor value of minimum key - 1 : -> " + studentRedBlackBST.floor(minimumKey - 1));
+        System.out.println("RedBlackBST ceil value of minimum key + 1 : -> " + studentRedBlackBST.ceil(minimumKey + 1));
+        int maximumKey = studentRedBlackBST.getMaximum();
+        System.out.println("RedBlackBST containsKey(" + maximumKey + "): -> " + studentRedBlackBST.containsKey(maximumKey));
+        System.out.println("RedBlackBST maximum key: -> " + maximumKey + " value -> " + studentRedBlackBST.get(maximumKey));
+        System.out.println("RedBlackBST rank of maximum key: -> " + studentRedBlackBST.rank(maximumKey));
+        System.out.println("RedBlackBST floor value of maximum key - 1 : -> " + studentRedBlackBST.floor(maximumKey - 1));
+        System.out.println("RedBlackBST ceil value of maximum key + 1 : -> " + studentRedBlackBST.ceil(maximumKey + 1));
+        System.out.println("------------------------------------------------------------------------------");
+        int start = 1390;
+        int end = 1550;
+        student = Student.getRandomStudentData();
+        student.roll = end;
+        studentRedBlackBST.put(student.roll, student);
+        student.roll = start;
+        studentRedBlackBST.put(student.roll, student);
+        studentRedBlackBST.printSizeLeftAndRightSubtrees();
+        System.out.println("RedBlackBST all keys: " + studentRedBlackBST.keys());
+        System.out.println("RedBlackBST count of all keys between (" + start + ", " + end + "): " + studentRedBlackBST.rangeCount(start, end));
+        System.out.println("RedBlackBST all keys between (" + start + ", " + end + "): " + studentRedBlackBST.rangeKeys(start, end));
+    }
+
 }
