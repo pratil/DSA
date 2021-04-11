@@ -1,5 +1,6 @@
 package util;
 
+import bag.Bag;
 import binaryHeap.MaxHeapTree;
 import binaryHeap.MinHeapTree;
 import bst.BST;
@@ -11,6 +12,17 @@ import stack.Stack;
 import java.util.Arrays;
 
 public class Test {
+
+    public static void studentBag() {
+        Bag<Student> studentBag = new Bag<>();
+        System.out.println(studentBag);
+        System.out.println("studentBag.isEmpty()=> " + studentBag.isEmpty());
+        for (int i = 0; i < 10; i++)
+            studentBag.add(Student.getRandomStudentData());
+        System.out.println("studentBag.isEmpty()=> " + studentBag.isEmpty());
+        System.out.println(studentBag);
+    }
+
     public static void studentStack() {
         Stack<Student> studentStack = new Stack<>();
         System.out.println(studentStack);
