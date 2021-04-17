@@ -8,10 +8,53 @@ import bst.RedBlackBST;
 import queue.Queue;
 import sort.*;
 import stack.Stack;
+import unionfind.*;
 
 import java.util.Arrays;
 
 public class Test {
+
+    public static void unionFind(UnionFind unionFind, int countOfNodes, int unionCount, int findCount) {
+        int first, second;
+        System.out.println(unionFind);
+        for (int i = 0; i < unionCount; i++) {
+            first = Random.intValue(countOfNodes);
+            second = Random.intValue(countOfNodes);
+            unionFind.union(first, second);
+            System.out.println("union(" + first + ", " + second + ")");
+            System.out.println(unionFind);
+        }
+        System.out.println(unionFind);
+        for (int i = 0; i < findCount; i++) {
+            first = Random.intValue(countOfNodes);
+            second = Random.intValue(countOfNodes);
+            System.out.println("find(" + first + ", " + second + "): " + unionFind.find(first, second));
+        }
+    }
+
+    public static void unionFind(UnionFind unionFind, int countOfNodes) {
+        unionFind(unionFind, countOfNodes, 5, 4);
+    }
+
+    public static void quickFind() {
+        int length = 10;
+        unionFind(new QuickFind(length), length);
+    }
+
+    public static void quickUnion() {
+        int length = 10;
+        unionFind(new QuickUnion(length), length);
+    }
+
+    public static void weightedQuickUnion() {
+        int length = 10;
+        unionFind(new WeightedQuickUnion(length), length);
+    }
+
+    public static void quickUnionWithPathCompression() {
+        int length = 10;
+        unionFind(new QuickUnionWithPathCompression(length), length);
+    }
 
     public static void studentBag() {
         Bag<Student> studentBag = new Bag<>();

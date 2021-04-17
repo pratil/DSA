@@ -1,8 +1,10 @@
-import util.Test;
-
 public class Main {
     public static void main(String[] args) {
-        Test.studentBag();
+//        Test.studentBag();
+//        Test.quickFind();
+//        Test.quickUnion();
+//        Test.weightedQuickUnion();
+//        Test.quickUnionWithPathCompression();
 //        Test.studentStack();
 //        Test.studentQueue();
 //        Test.studentSelectionSort();
