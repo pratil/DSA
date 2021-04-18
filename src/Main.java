@@ -1,5 +1,3 @@
-import util.Test;
-
 public class Main {
     public static void main(String[] args) {
 //        Test.quickFind();
@@ -21,6 +19,6 @@ public class Main {
 //        Test.studentRedBlackBST();
 //        Test.compareBSTAndRedBlackBST();
 //        Test.studentHashSeparateChaining();
-        Test.studentHashLinearProbing();
+//        Test.studentHashLinearProbing();
     }
 }
