@@ -1,10 +1,8 @@
 package _7_symboltable.ordered;
 
-import _7_symboltable.SymbolTable;
-
 import java.util.ArrayList;
 
-public class BST<Key extends Comparable<Key>, Value> implements SymbolTable<Key, Value> {
+public class BST<Key extends Comparable<Key>, Value> implements OrderedSymbolTable<Key, Value> {
 
     private class TreeNode implements Comparable<TreeNode> {
         Key key;
@@ -18,13 +16,6 @@ public class BST<Key extends Comparable<Key>, Value> implements SymbolTable<Key,
             this.value = value;
             left = null;
             right = null;
-        }
-
-        public TreeNode(Key key, Value value, TreeNode left, TreeNode right) {
-            this.key = key;
-            this.value = value;
-            this.left = left;
-            this.right = right;
         }
 
         @Override
@@ -145,6 +136,7 @@ public class BST<Key extends Comparable<Key>, Value> implements SymbolTable<Key,
         return getMinimum(root.left);
     }
 
+    @Override
     public Key getMaximum() {
         TreeNode treeNode = getMaximum(root);
         return (treeNode != null) ? treeNode.key : null;
@@ -158,6 +150,7 @@ public class BST<Key extends Comparable<Key>, Value> implements SymbolTable<Key,
         return getMaximum(root.right);
     }
 
+    @Override
     public Key floor(Key key) {
         TreeNode treeNode = floor(root, key);
         return (treeNode != null) ? treeNode.key : null;
@@ -177,6 +170,7 @@ public class BST<Key extends Comparable<Key>, Value> implements SymbolTable<Key,
         }
     }
 
+    @Override
     public Key ceil(Key key) {
         TreeNode treeNode = ceil(root, key);
         return (treeNode != null) ? treeNode.key : null;
@@ -196,6 +190,7 @@ public class BST<Key extends Comparable<Key>, Value> implements SymbolTable<Key,
         }
     }
 
+    @Override
     public int size() {
         return size(root);
     }
@@ -204,6 +199,7 @@ public class BST<Key extends Comparable<Key>, Value> implements SymbolTable<Key,
         return (treeNode == null) ? 0 : treeNode.count;
     }
 
+    @Override
     public int rank(Key key) {
         return rank(root, key);
     }
@@ -220,6 +216,7 @@ public class BST<Key extends Comparable<Key>, Value> implements SymbolTable<Key,
             return 1 + size(root.left) + rank(root.right, key);
     }
 
+    @Override
     public Iterable<Key> keys() {
         ArrayList<Key> list = new ArrayList<>();
         inorder(root, list);
@@ -234,29 +231,32 @@ public class BST<Key extends Comparable<Key>, Value> implements SymbolTable<Key,
         inorder(root.right, list);
     }
 
-    public Iterable<Key> rangeKeys(Key start, Key end) {
+    @Override
+    public Iterable<Key> keys(Key start, Key end) {
         ArrayList<Key> list = new ArrayList<>();
-        rangeKeys(root, list, start, end);
+        keys(root, list, start, end);
         return list;
     }
 
-    private void rangeKeys(TreeNode root, ArrayList<Key> list, Key start, Key end) {
+    private void keys(TreeNode root, ArrayList<Key> list, Key start, Key end) {
         if (root == null)
             return;
         int startCompareTo = start.compareTo(root.key);
         int endCompareTo = end.compareTo(root.key);
         if (startCompareTo < 0)
-            rangeKeys(root.left, list, start, end);
+            keys(root.left, list, start, end);
         if (startCompareTo <= 0 && endCompareTo >= 0)
             list.add(root.key);
         if (endCompareTo > 0)
-            rangeKeys(root.right, list, start, end);
+            keys(root.right, list, start, end);
     }
 
-    public int rangeCount(Key start, Key end) {
+    @Override
+    public int countKeys(Key start, Key end) {
         return rank(end) - rank(start) + ((get(end) != null) ? 1 : 0);
     }
 
+    @Override
     public boolean containsKey(Key key) {
         return get(root, key) != null;
     }

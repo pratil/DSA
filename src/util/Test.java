@@ -233,8 +233,8 @@ public class Test {
         student.roll = start;
         studentBST.put(student.roll, student);
         System.out.println("BST all keys: " + studentBST.keys());
-        System.out.println("BST count of all keys between (" + start + ", " + end + "): " + studentBST.rangeCount(start, end));
-        System.out.println("BST all keys between (" + start + ", " + end + "): " + studentBST.rangeKeys(start, end));
+        System.out.println("BST count of all keys between (" + start + ", " + end + "): " + studentBST.countKeys(start, end));
+        System.out.println("BST all keys between (" + start + ", " + end + "): " + studentBST.keys(start, end));
     }
 
     public static void studentRedBlackBST() {
@@ -277,8 +277,8 @@ public class Test {
         studentRedBlackBST.put(student.roll, student);
         studentRedBlackBST.printSizeLeftAndRightSubtrees();
         System.out.println("RedBlackBST all keys: " + studentRedBlackBST.keys());
-        System.out.println("RedBlackBST count of all keys between (" + start + ", " + end + "): " + studentRedBlackBST.rangeCount(start, end));
-        System.out.println("RedBlackBST all keys between (" + start + ", " + end + "): " + studentRedBlackBST.rangeKeys(start, end));
+        System.out.println("RedBlackBST count of all keys between (" + start + ", " + end + "): " + studentRedBlackBST.countKeys(start, end));
+        System.out.println("RedBlackBST all keys between (" + start + ", " + end + "): " + studentRedBlackBST.keys(start, end));
     }
 
     public static void compareBSTAndRedBlackBST() {
