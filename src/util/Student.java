@@ -5,6 +5,7 @@ public class Student implements Comparable<Student> {
     String name;
     Integer marks;
     Boolean pass;
+    private int hash = 0;
 
     public Student(Integer roll, String name, Integer marks) {
         this.roll = roll;
@@ -44,5 +45,17 @@ public class Student implements Comparable<Student> {
         return (this.marks - that.marks);
 //        return (this.roll - that.roll);
 //        return this.name.compareTo(that.name);
+    }
+
+    @Override
+    public int hashCode() {
+        if (hash == 0) {
+            hash = 17;
+            hash = 31 * hash + roll.hashCode();
+            hash = 31 * hash + name.hashCode();
+            hash = 31 * hash + marks.hashCode();
+            hash = 31 * hash + pass.hashCode();
+        }
+        return hash;
     }
 }

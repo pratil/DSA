@@ -9,6 +9,8 @@ import _6_binaryheap.MaxHeapTree;
 import _6_binaryheap.MinHeapTree;
 import _7_symboltable.ordered.BST;
 import _7_symboltable.ordered.RedBlackBST;
+import _7_symboltable.unordered.LinearProbing;
+import _7_symboltable.unordered.SeparateChaining;
 
 import java.util.Arrays;
 
@@ -322,8 +324,32 @@ public class Test {
         System.out.println("--------------------------------------");
     }
 
-//    public static void studentUnorderedSymbolTable(SymbolTable<Integer, Student> symbolTable) {
-//        System.out.println(symbolTable);
-//    }
+    public static void studentHashSeparateChaining() {
+        SeparateChaining<Student, String> separateChaining = new SeparateChaining<>();
+        String section;
+        Student student;
+        for (int i = 0; i < 5; i++) {
+            student = Student.getRandomStudentData();
+            section = Random.string(1);
+            System.out.println("get(" + student + ") => " + separateChaining.get(student));
+            separateChaining.put(student, section);
+            System.out.println("get(" + student + ") => " + separateChaining.get(student));
+        }
+        System.out.println(separateChaining);
+    }
+
+    public static void studentHashLinearProbing() {
+        LinearProbing<Student, String> linearProbing = new LinearProbing<>();
+        String section;
+        Student student;
+        for (int i = 0; i < 5; i++) {
+            student = Student.getRandomStudentData();
+            section = Random.string(1);
+            System.out.println("get(" + student + ") => " + linearProbing.get(student));
+            linearProbing.put(student, section);
+            System.out.println("get(" + student + ") => " + linearProbing.get(student));
+        }
+        System.out.println(linearProbing);
+    }
 
 }
