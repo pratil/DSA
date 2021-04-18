@@ -1,14 +1,14 @@
 package util;
 
-import bag.Bag;
-import binaryHeap.MaxHeapTree;
-import binaryHeap.MinHeapTree;
-import bst.BST;
-import bst.RedBlackBST;
-import queue.Queue;
-import sort.*;
-import stack.Stack;
-import unionfind.*;
+import _1_unionfind.*;
+import _2_bag.Bag;
+import _3_stack.Stack;
+import _4_queue.Queue;
+import _5_sort.*;
+import _6_binaryheap.MaxHeapTree;
+import _6_binaryheap.MinHeapTree;
+import _7_symboltable.ordered.BST;
+import _7_symboltable.ordered.RedBlackBST;
 
 import java.util.Arrays;
 
@@ -321,5 +321,9 @@ public class Test {
         redBlackBST.printSizeLeftAndRightSubtrees();
         System.out.println("--------------------------------------");
     }
+
+//    public static void studentUnorderedSymbolTable(SymbolTable<Integer, Student> symbolTable) {
+//        System.out.println(symbolTable);
+//    }
 
 }

@@ -1,10 +1,10 @@
 public class Main {
     public static void main(String[] args) {
-//        Test.studentBag();
 //        Test.quickFind();
 //        Test.quickUnion();
 //        Test.weightedQuickUnion();
 //        Test.quickUnionWithPathCompression();
+//        Test.studentBag();
 //        Test.studentStack();
 //        Test.studentQueue();
 //        Test.studentSelectionSort();
@@ -18,5 +18,6 @@ public class Main {
 //        Test.studentBST();
 //        Test.studentRedBlackBST();
 //        Test.compareBSTAndRedBlackBST();
+//        Test.studentUnorderedSymbolTable(new SeparateChaining<>());
     }
 }
