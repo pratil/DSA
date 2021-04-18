@@ -14,7 +14,7 @@ The basic layout for all the union find algorithms is similar:
 
 _The skeleton to implement any union find algorithm_
 
-```
+```java
 // java class
 public class NameOfAlgorithm {
 
