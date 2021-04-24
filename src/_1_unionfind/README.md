@@ -1,6 +1,6 @@
 # Union Find
 
-> Different Algorithms using which I have implemented Union-Find are:    
+> **Different Algorithms using which I have implemented Union-Find are:**    
 > 👉 Quick Find  
 > 👉 Quick Union  
 > 👉 Weighted Quick Union  
@@ -8,7 +8,7 @@
 
 The basic layout for all the union find algorithms is similar:
 
-- A function to Initialize (in Java Constructors)
+- A function to Initialize (for Java I used Constructors)
 - A function to join two objects together i.e. union function
 - A function to find if two objects are joined/connected or not i.e. find function
 

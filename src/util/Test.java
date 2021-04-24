@@ -14,8 +14,10 @@ import _7_symboltable.unordered.SeparateChaining;
 
 import java.util.Arrays;
 
+// a class to test all different algorithms and methods
 public class Test {
 
+    // function to test all the Union Find Algorithms that are children of UnionFind
     public static void unionFind(UnionFind unionFind, int countOfNodes, int unionCount, int findCount) {
         int first, second;
         System.out.println(unionFind);
@@ -38,26 +40,31 @@ public class Test {
         unionFind(unionFind, countOfNodes, 5, 4);
     }
 
+    // function to test QuickFind
     public static void quickFind() {
         int length = 10;
         unionFind(new QuickFind(length), length);
     }
 
+    // function to test QuickUnion
     public static void quickUnion() {
         int length = 10;
         unionFind(new QuickUnion(length), length);
     }
 
+    // function to test WeightedQuickUnion
     public static void weightedQuickUnion() {
         int length = 10;
         unionFind(new WeightedQuickUnion(length), length);
     }
 
+    // function to test QuickUnionWithPathCompression
     public static void quickUnionWithPathCompression() {
         int length = 10;
         unionFind(new QuickUnionWithPathCompression(length), length);
     }
 
+    // function to test Bag Data Structure, Bag of students
     public static void studentBag() {
         Bag<Student> studentBag = new Bag<>();
         System.out.println(studentBag);
@@ -68,6 +75,7 @@ public class Test {
         System.out.println(studentBag);
     }
 
+    // function to test Stack Data Structure, Stack of students
     public static void studentStack() {
         Stack<Student> studentStack = new Stack<>();
         System.out.println(studentStack);
@@ -75,10 +83,12 @@ public class Test {
             studentStack.push(Student.getRandomStudentData());
         System.out.println(studentStack);
         System.out.println("studentStack.peek()=> " + studentStack.peek());
+        System.out.println("studentStack.pop()=> " + studentStack.pop());
         System.out.println("studentStack.size()=> " + studentStack.size());
         System.out.println("studentStack.isEmpty()=> " + studentStack.isEmpty());
     }
 
+    // function to test Queue Data Structure, Queue of students
     public static void studentQueue() {
         Queue<Student> studentQueue = new Queue<>();
         System.out.println(studentQueue);
@@ -95,6 +105,7 @@ public class Test {
         System.out.println("studentQueue.isEmpty()=> " + studentQueue.isEmpty());
     }
 
+    // function to test Sorting using all the methods which are children of Sort, Sorting of student array
     private static void studentSort(Sort<Student> method, int length) {
         Order order;
         Student[] students = new Student[length];
@@ -116,16 +127,19 @@ public class Test {
         studentSort(method, 10);
     }
 
+    // function to test SelectionSort
     public static void studentSelectionSort() {
         Sort<Student> selection = new Selection<>();
         studentSort(selection);
     }
 
+    // function to test InsertionSort
     public static void studentInsertionSort() {
         Sort<Student> insertion = new Insertion<>();
         studentSort(insertion);
     }
 
+    // function to test Shuffle an integer array
     public static void integerShuffle() {
         Shuffle<Integer> shuffle = new Shuffle<>();
         int length = 10;
@@ -137,21 +151,25 @@ public class Test {
         System.out.println(Arrays.toString(integers));
     }
 
+    // function to test MergeSort
     public static void studentMergeSort() {
         Sort<Student> merge = new Merge<>();
         studentSort(merge);
     }
 
+    // function to test HeapSort
     public static void studentHeapSort() {
         Sort<Student> heap = new Heap<>();
         studentSort(heap);
     }
 
+    // function to test QuickSort
     public static void studentQuickSort() {
         Sort<Student> quick = new Quick<>();
         studentSort(quick, 1000);
     }
 
+    // function to test MaxHeapTree, a heap tree of students
     public static void studentMaxHeapTree() {
         MaxHeapTree<Student> maxHeapTree = new MaxHeapTree<>();
         int length = 10;
@@ -164,6 +182,7 @@ public class Test {
         System.out.println(maxHeapTree);
     }
 
+    // function to test MinHeapTree, a heap tree of students
     public static void studentMinHeapTree() {
         MinHeapTree<Student> minHeapTree = new MinHeapTree<>();
         int length = 10;
@@ -176,6 +195,7 @@ public class Test {
         System.out.println(minHeapTree);
     }
 
+    // function to test Binary Search Tree (BST) of students
     public static void studentBST() {
         int length = 10;
         BST<Integer, Student> studentBST = new BST<>();
@@ -239,6 +259,7 @@ public class Test {
         System.out.println("BST all keys between (" + start + ", " + end + "): " + studentBST.keys(start, end));
     }
 
+    // function to test Red Black BST of students
     public static void studentRedBlackBST() {
         int length = 10;
         RedBlackBST<Integer, Student> studentRedBlackBST = new RedBlackBST<>();
@@ -283,6 +304,7 @@ public class Test {
         System.out.println("RedBlackBST all keys between (" + start + ", " + end + "): " + studentRedBlackBST.keys(start, end));
     }
 
+    // function to test and compare The efficiency of RedBlackBST over normal BST when order
     public static void compareBSTAndRedBlackBST() {
         int length = 8191; // for (power of 2) - 1 RedBlackBST is fully balanced in all cases
         BST<Integer, Student> bst;
@@ -324,6 +346,7 @@ public class Test {
         System.out.println("--------------------------------------");
     }
 
+    // function to test SeparateChaining
     public static void studentHashSeparateChaining() {
         SeparateChaining<Student, String> separateChaining = new SeparateChaining<>();
         String section;
@@ -338,6 +361,7 @@ public class Test {
         System.out.println(separateChaining);
     }
 
+    // function to test LinearProbing
     public static void studentHashLinearProbing() {
         LinearProbing<Student, String> linearProbing = new LinearProbing<>();
         String section;

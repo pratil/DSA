@@ -1,13 +1,11 @@
 # Bag
 
-A basic data structure to store the elements.  
-Contains a list of generic items.  
-Basic operations:
+> A basic data structure to store the elements. Contains a list of generic items. Basic operations:
 
-- add(): add an element in the bag
-- size(): get the size of the bag
-- isEmpty(): to check if the bag is empty or not
-- iterator(): to get a custom iterator, or for non-java code a list of items in the bag
+- **add()**: add an element in the bag
+- **size()**: get the size of the bag
+- **isEmpty()**: to check if the bag is empty or not
+- **iterator()**: to get a custom iterator, or for non-java code a list of items in the bag
 
 ```java
 // java class
