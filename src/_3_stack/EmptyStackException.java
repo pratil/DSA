@@ -1,5 +1,6 @@
 package _3_stack;
 
+// Custom exception which suggests that the Stack is empty.
 public class EmptyStackException extends RuntimeException {
 
     public EmptyStackException() {
