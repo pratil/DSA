@@ -13,9 +13,6 @@
 // a linear data type that stores data
 public class Bag<P> implements Iterable<P> {
 
-//    private inner class to implement an iterator of Bag, so that the bag is Iterable
-    private class BagIterator implements Iterator<P> { /* code here */ }
-    
 //    initialise a bag
     public Bag() { /* code here */ }
     
@@ -31,6 +28,9 @@ public class Bag<P> implements Iterable<P> {
 //    to return an iterator, which makes the Bag iterable
     @Override
     public Iterator<P> iterator() { /* code here */ }
-    
+
+    //    private inner class to implement an iterator of Bag, so that the bag is Iterable
+    private class BagIterator implements Iterator<P> { /* code here */ }
+
 }
 ```
