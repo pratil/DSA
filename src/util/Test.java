@@ -1,16 +1,16 @@
 package util;
 
-import _1_unionfind.*;
-import _2_bag.Bag;
-import _3_stack.Stack;
-import _4_queue.Queue;
-import _5_sort.*;
-import _6_binaryheap.MaxHeapTree;
-import _6_binaryheap.MinHeapTree;
-import _7_symboltable.ordered.BST;
-import _7_symboltable.ordered.RedBlackBST;
-import _7_symboltable.unordered.LinearProbing;
-import _7_symboltable.unordered.SeparateChaining;
+import algorithms.part.one._1_unionfind.*;
+import algorithms.part.one._2_bag.Bag;
+import algorithms.part.one._3_stack.Stack;
+import algorithms.part.one._4_queue.Queue;
+import algorithms.part.one._5_sort.*;
+import algorithms.part.one._6_binaryheap.MaxHeapTree;
+import algorithms.part.one._6_binaryheap.MinHeapTree;
+import algorithms.part.one._7_symboltable.ordered.BST;
+import algorithms.part.one._7_symboltable.ordered.RedBlackBST;
+import algorithms.part.one._7_symboltable.unordered.LinearProbing;
+import algorithms.part.one._7_symboltable.unordered.SeparateChaining;
 
 import java.util.Arrays;
 
