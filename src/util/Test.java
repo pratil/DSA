@@ -11,7 +11,13 @@ import algorithms.part.one._7_symboltable.ordered.BST;
 import algorithms.part.one._7_symboltable.ordered.RedBlackBST;
 import algorithms.part.one._7_symboltable.unordered.LinearProbing;
 import algorithms.part.one._7_symboltable.unordered.SeparateChaining;
+import algorithms.part.two.*;
+import algorithms.part.two._1_graph.*;
+import algorithms.part.two.mst.KruskalMST;
+import algorithms.part.two.mst.MST;
+import algorithms.part.two.mst.PrimsMST;
 
+import java.io.FileNotFoundException;
 import java.util.Arrays;
 
 // a class to test all different algorithms and methods
@@ -379,5 +385,191 @@ public class Test {
         }
 
     }
+
+    public static class PartTwo {
+
+        private static final String BASE_PATH = System.getProperty("user.dir");
+
+        private static final String TINY_UNDIRECTED_GRAPH_PATH = BASE_PATH + "/../tiny_undirected_graph.txt";
+        private static final String MEDIUM_UNDIRECTED_GRAPH_PATH = BASE_PATH + "/../medium_undirected_graph.txt";
+        private static final String TINY_DIRECTED_GRAPH_PATH = BASE_PATH + "/../tiny_directed_graph.txt";
+        private static final String MEDIUM_DIRECTED_GRAPH_PATH = BASE_PATH + "/../medium_directed_graph.txt";
+        private static final String TINY_EDGE_WEIGHTED_UNDIRECTED_GRAPH_PATH = BASE_PATH + "/../tiny_edge_weighted_undirected_graph.txt";
+        private static final String MEDIUM_EDGE_WEIGHTED_UNDIRECTED_GRAPH_PATH = BASE_PATH + "/../medium_edge_weighted_undirected_graph.txt";
+        private static final String TINY_EDGE_WEIGHTED_DIRECTED_GRAPH_PATH = BASE_PATH + "/../tiny_edge_weighted_directed_graph.txt";
+        private static final String MEDIUM_EDGE_WEIGHTED_DIRECTED_GRAPH_PATH = BASE_PATH + "/../medium_edge_weighted_directed_graph.txt";
+
+        public static UndirectedGraph buildUndirectedGraph(String filename) {
+            try {
+                UndirectedGraph graph = new UndirectedGraph(filename);
+                System.out.println("Graph created");
+//            System.out.println(graph);
+                return graph;
+            } catch (FileNotFoundException fileNotFoundException) {
+                throw new GraphCreateException(fileNotFoundException);
+            }
+        }
+
+        public static UndirectedGraph buildUndirectedGraph() {
+            return buildUndirectedGraph(TINY_UNDIRECTED_GRAPH_PATH);
+        }
+
+        public static EdgeWeightedUndirectedGraph buildEdgeWeightedUndirectedGraph(String filename) {
+            try {
+                EdgeWeightedUndirectedGraph graph = new EdgeWeightedUndirectedGraph(filename);
+                System.out.println("Graph created");
+//            System.out.println(graph);
+                return graph;
+            } catch (FileNotFoundException fileNotFoundException) {
+                throw new GraphCreateException(fileNotFoundException);
+            }
+        }
+
+        public static EdgeWeightedUndirectedGraph buildEdgeWeightedUndirectedGraph() {
+            return buildEdgeWeightedUndirectedGraph(TINY_EDGE_WEIGHTED_UNDIRECTED_GRAPH_PATH);
+        }
+
+        public static EdgeWeightedDirectedGraph buildEdgeWeightedDirectedGraph(String filename) {
+            try {
+                EdgeWeightedDirectedGraph graph = new EdgeWeightedDirectedGraph(filename);
+                System.out.println("Graph created");
+//                System.out.println(graph);
+                return graph;
+            } catch (FileNotFoundException fileNotFoundException) {
+                throw new GraphCreateException(fileNotFoundException);
+            }
+        }
+
+        public static EdgeWeightedDirectedGraph buildEdgeWeightedDirectedGraph() {
+            return buildEdgeWeightedDirectedGraph(TINY_EDGE_WEIGHTED_DIRECTED_GRAPH_PATH);
+        }
+
+        public static DirectedGraph buildDirectedGraph(String filename) {
+            try {
+                DirectedGraph graph = new DirectedGraph(filename);
+                System.out.println("Graph created");
+//                System.out.println(graph);
+                return graph;
+            } catch (FileNotFoundException fileNotFoundException) {
+                throw new GraphCreateException(fileNotFoundException);
+            }
+        }
+
+        public static DirectedGraph buildDirectedGraph() {
+            return buildDirectedGraph(TINY_DIRECTED_GRAPH_PATH);
+        }
+
+        public static void reverseDirectedGraph() {
+            DirectedGraph graph = buildDirectedGraph();
+            System.out.println(graph);
+            System.out.println(graph.reverse());
+            System.out.println(DirectedGraph.reverse(graph));
+            System.out.println(DirectedGraph.reverse(graph).equals(graph.reverse()));
+        }
+
+        public static void dfsGraph(Graph graph) {
+            int source = 0;
+            Paths paths = new DepthFirstSearch(graph, source);
+            System.out.println("DFS completed from source : " + source);
+            for (int i = 0; i < 5; i++) {
+                int destination = Random.intValue(graph.noOfVertices());
+                if (paths.hasPathTo(destination)) {
+                    System.out.print("Path from " + source + " to " + destination + " is");
+                    for (int vertex : paths.pathTo(destination))
+                        System.out.print(" -> " + vertex);
+                    System.out.println();
+                } else
+                    System.out.println("No path from " + source + " to " + destination);
+            }
+        }
+
+        public static void bfsGraph(Graph graph) {
+            int source = 0;
+            Paths paths = new BreadthFirstSearch(graph, source);
+            System.out.println("BFS completed from source : " + source);
+            for (int i = 0; i < 5; i++) {
+                int destination = Random.intValue(graph.noOfVertices());
+                if (paths.hasPathTo(destination)) {
+                    System.out.print("Path from " + source + " to " + destination + " is");
+                    for (int vertex : paths.pathTo(destination))
+                        System.out.print(" -> " + vertex);
+                    System.out.println();
+                } else
+                    System.out.println("No path from " + source + " to " + destination);
+            }
+        }
+
+        public static void connectedComponentsGraph(Graph graph) {
+            ConnectedComponents connectedComponents = new ConnectedComponents(graph);
+            System.out.println(connectedComponents);
+        }
+
+        public static void dfsUndirectedGraph() {
+            dfsGraph(buildUndirectedGraph());
+        }
+
+        public static void bfsUndirectedGraph() {
+            bfsGraph(buildUndirectedGraph());
+        }
+
+        public static void connectedComponentsUndirectedGraph() {
+            connectedComponentsGraph(buildUndirectedGraph());
+        }
+
+        public static void dfsDirectedGraph() {
+            dfsGraph(buildDirectedGraph());
+        }
+
+        public static void bfsDirectedGraph() {
+            bfsGraph(buildDirectedGraph());
+        }
+
+        public static void connectedComponentsDirectedGraph() {
+            connectedComponentsGraph(buildDirectedGraph());
+        }
+
+        public static void cycleInDirectedGraph() {
+            GraphCycleFinder finder = new GraphCycleFinder(buildDirectedGraph());
+            if (finder.isCyclic()) {
+                System.out.print("Graph contains a cycle: ");
+                for (int vertex : finder.cycle())
+                    System.out.print(" -> " + vertex);
+                System.out.println();
+            } else
+                System.out.println("No cycle found in the graph");
+        }
+
+        public static void topologicalOrder() {
+            Graph graph = buildDirectedGraph();
+            assert !(new GraphCycleFinder(graph).isCyclic());
+            DepthFirstOrder depthFirstOrder = new DepthFirstOrder(graph);
+            System.out.print("Topological Order: ");
+            for (int vertex : depthFirstOrder.reversePostOrder())
+                System.out.print(" -> " + vertex);
+            System.out.println();
+        }
+
+        public static void strongConnectedComponents() {
+            StrongConnectedComponents strongConnectedComponents = new StrongConnectedComponents(buildDirectedGraph());
+            System.out.println(strongConnectedComponents);
+        }
+
+        public static void mst(MST mst) {
+            System.out.println("Edges in MST: ");
+            for (Edge edge : mst.mstEdges())
+                System.out.println(edge);
+            System.out.println("MST Weight: " + mst.weight());
+        }
+
+        public static void kruskalMST() {
+            mst(new KruskalMST(buildEdgeWeightedUndirectedGraph()));
+        }
+
+        public static void primsMST() {
+            mst(new PrimsMST(buildEdgeWeightedUndirectedGraph()));
+        }
+
+    }
+
 
 }
