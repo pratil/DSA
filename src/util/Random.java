@@ -4,9 +4,9 @@ package util;
 public class Random {
 
     // default values for max and min ranges for different numbers
-    private static final int DEFAULT_DOUBLE_MIN_RANGE = 0;
+    private static final int DEFAULT_DOUBLE_MIN_RANGE = 100;
     private static final int DEFAULT_DOUBLE_MAX_RANGE = 100;
-    private static final int DEFAULT_INTEGER_MIN_RANGE = 0;
+    private static final int DEFAULT_INTEGER_MIN_RANGE = 100;
     private static final int DEFAULT_INTEGER_MAX_RANGE = 100;
     private static final int DEFAULT_STRING_LENGTH = 5; // default values for string length
     // all the characters from which it'll generate a random string

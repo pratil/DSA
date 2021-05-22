@@ -27,8 +27,4 @@ public interface BinaryHeapTree<P extends Comparable<P>> {
     P delete();
 
     int size();
-
-    default boolean isEmpty() {
-        return size() == 0;
-    }
 }
