@@ -33,10 +33,6 @@ public class UndirectedGraph implements Graph {
         this(InputHelper.read(filename));
     }
 
-    public UndirectedGraph() {
-        this(InputHelper.read(System.in));
-    }
-
     @Override
     public void addEdge(int first, int second) {
 //        System.out.println("added edge: " + first + " ---- " + second);
