@@ -1,4 +1,4 @@
-### **_[Algorithms Part I](https://www.coursera.org/learn/algorithms-part1)_**
+# **_[Algorithms Part I](https://www.coursera.org/learn/algorithms-part1)_**
 
 - [Union Find](./src/algorithms/part/one/_1_unionfind)
     - [Quick Find](./src/algorithms/part/one/_1_unionfind/QuickFind.java)
