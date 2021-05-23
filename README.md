@@ -14,7 +14,7 @@ examples.
 
 ## Contents
 
-### [Algorithms Part I](./src/algorithms/part/one)
+> ### [Algorithms Part I](./src/algorithms/part/one)
 
 - [Union Find](./src/algorithms/part/one/_1_unionfind)
     - [Quick Find](./src/algorithms/part/one/_1_unionfind/QuickFind.java)
@@ -39,17 +39,17 @@ examples.
         - [LinearProbing](./src/algorithms/part/one/_7_symboltable/unordered/LinearProbing.java)
         - [SeparateChaining](./src/algorithms/part/one/_7_symboltable/unordered/SeparateChaining.java)
 
-### [Algorithms Part II (In Progress)](./src/algorithms/part/two)
+> ### [Algorithms Part II (In Progress)](./src/algorithms/part/two)
 
-Contain Graphs, DFS, BFS, Minimum Spanning Tree, Shorted Path, etc. Will be adding index once it is completed
+- Contain Graphs, DFS, BFS, Minimum Spanning Tree, Shorted Path, etc. Will be adding index once it is completed
 
 ## Things Todo and their status
 
--[x] To study _Algorithms Part 1_
--[x] To practice and push the code for _Algorithms Part 1_
--[ ] To add comments and Readme in every major package in _Algorithms Part 1_
--[ ] To study _Algorithms Part 2_
--[ ] To practice and push the code for _Algorithms Part 2_
--[ ] To add comments and Readme in every major package in _Algorithms Part 2_
+- [x] To study _Algorithms Part 1_
+- [x] To practice and push the code for _Algorithms Part 1_
+- [ ] To add comments and Readme in every major package in _Algorithms Part 1_
+- [ ] To study _Algorithms Part 2_
+- [ ] To practice and push the code for _Algorithms Part 2_
+- [ ] To add comments and Readme in every major package in _Algorithms Part 2_
 
 #### Big Thanks to Princeton University and all the people who worked together to make these two AMAZING Courses
