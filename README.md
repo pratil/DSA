@@ -24,7 +24,7 @@ examples.
 - [Bag](./src/algorithms/part/one/_2_bag)
 - [Stack](./src/algorithms/part/one/_3_stack)
 - [Queue](./src/algorithms/part/one/_4_queue)
-- [Sorting Algorithms](./src/algorithms/part/one/_5_ sort)
+- [Sorting Algorithms](./src/algorithms/part/one/_5_sort)
     - [Selection Sort](./src/algorithms/part/one/_5_sort/methods/Selection.java)
     - [Insertion Sort](./src/algorithms/part/one/_5_sort/methods/Insertion.java)
     - [Heap Sort](./src/algorithms/part/one/_5_sort/methods/Heap.java)

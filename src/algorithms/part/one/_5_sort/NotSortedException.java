@@ -1,5 +1,6 @@
 package algorithms.part.one._5_sort;
 
+//An exception which is raised when array is not sorted
 public class NotSortedException extends RuntimeException {
     public NotSortedException() {
         super("Elements are not sorted");

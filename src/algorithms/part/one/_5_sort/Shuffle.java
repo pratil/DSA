@@ -4,6 +4,7 @@ import util.Random;
 
 import java.util.Arrays;
 
+// A class to shuffle the list of generic array of objects
 public class Shuffle<P> {
     private void swap(P[] array, int first, int second) {
         P temp = array[first];

@@ -1,22 +1,32 @@
-package algorithms.part.one._5_sort;
+package algorithms.part.one._5_sort.methods;
 
+import algorithms.part.one._5_sort.Sort;
+
+// A child of Sort to implement Sorting array of generic objects using Heap sorting method
+// For thw whole code we will assume that the tree starts from 1 index till nth index
+// This can be done by overriding the isLess(), isGreater() and swap() functions
+// And accessing the (i-1)th index instead of ith index i.e. instead of first and second we'll use first-1 & second-1
 public class Heap<P extends Comparable<P>> implements Sort<P> {
 
+    // to get the name of the sort method only for output purpose
     @Override
     public String getName() {
         return "Heap Sort";
     }
 
+    // overriding the function to tweak it as mentioned above in the comments
     @Override
     public boolean isGreater(P[] array, int first, int second) {
         return compare(array, first - 1, second - 1) > 0;
     }
 
+    // overriding the function to tweak it as mentioned above in the comments
     @Override
     public boolean isLess(P[] array, int first, int second) {
         return compare(array, first - 1, second - 1) < 0;
     }
 
+    // overriding the function to tweak it as mentioned above in the comments
     @Override
     public void swap(P[] array, int first, int second) {
         first--;
@@ -26,6 +36,7 @@ public class Heap<P extends Comparable<P>> implements Sort<P> {
         array[second] = temp;
     }
 
+    // function to sink an index from the heap, i.e. if it is greater than it's child it should be moved down recursively
     private void sinkAscending(P[] array, int index, int size) {
         if (2 * index <= size) {
             int leftChild = index * 2;
@@ -42,6 +53,7 @@ public class Heap<P extends Comparable<P>> implements Sort<P> {
         }
     }
 
+    // a method to sort the array in Ascending order
     @Override
     public void sortAscending(P[] array) {
         int size = array.length;
@@ -54,6 +66,7 @@ public class Heap<P extends Comparable<P>> implements Sort<P> {
         }
     }
 
+    // function to sink an index from the heap, i.e. if it is less than it's child it should be moved down recursively
     private void sinkDescending(P[] array, int index, int size) {
         if (2 * index <= size) {
             int leftChild = index * 2;
@@ -70,6 +83,7 @@ public class Heap<P extends Comparable<P>> implements Sort<P> {
         }
     }
 
+    // a method to sort the array in Descending order
     @Override
     public void sortDescending(P[] array) {
         int size = array.length;

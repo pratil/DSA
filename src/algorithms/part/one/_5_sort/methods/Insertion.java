@@ -1,12 +1,17 @@
-package algorithms.part.one._5_sort;
+package algorithms.part.one._5_sort.methods;
 
+import algorithms.part.one._5_sort.Sort;
+
+// A child of Sort to implement Sorting array of generic objects using Insertion sorting method
 public class Insertion<P extends Comparable<P>> implements Sort<P> {
 
+    // to get the name of the sort method only for output purpose
     @Override
     public String getName() {
         return "Insertion Sort";
     }
 
+    // a method to sort the array in Ascending order
     @Override
     public void sortAscending(P[] array) {
         int length = array.length, j;
@@ -22,6 +27,7 @@ public class Insertion<P extends Comparable<P>> implements Sort<P> {
         }
     }
 
+    // a method to sort the array in Descending order
     @Override
     public void sortDescending(P[] array) {
         int length = array.length, j;

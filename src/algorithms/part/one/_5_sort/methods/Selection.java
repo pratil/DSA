@@ -1,12 +1,17 @@
-package algorithms.part.one._5_sort;
+package algorithms.part.one._5_sort.methods;
 
+import algorithms.part.one._5_sort.Sort;
+
+// A child of Sort to implement Sorting array of generic objects using Selection sorting method
 public class Selection<P extends Comparable<P>> implements Sort<P> {
 
+    // to get the name of the sort method only for output purpose
     @Override
     public String getName() {
         return "Selection Sort";
     }
 
+    // to find the minimum in the given array within a range
     private int findMinimum(P[] array, int startIndex, int endIndex) {
         int minimumIndex = startIndex;
         for (int i = startIndex + 1; i <= endIndex; i++)
@@ -15,6 +20,7 @@ public class Selection<P extends Comparable<P>> implements Sort<P> {
         return minimumIndex;
     }
 
+    // a method to sort the array in Ascending order
     @Override
     public void sortAscending(P[] array) {
         int length = array.length, minimumIndex;
@@ -25,6 +31,7 @@ public class Selection<P extends Comparable<P>> implements Sort<P> {
         }
     }
 
+    // to find the maximum in the given array within a range
     private int findMaximum(P[] array, int startIndex, int endIndex) {
         int maximumIndex = startIndex;
         for (int i = startIndex + 1; i <= endIndex; i++)
@@ -33,6 +40,7 @@ public class Selection<P extends Comparable<P>> implements Sort<P> {
         return maximumIndex;
     }
 
+    // a method to sort the array in Descending order
     @Override
     public void sortDescending(P[] array) {
         int length = array.length, maximumIndex;
