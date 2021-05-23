@@ -14,7 +14,7 @@ examples.
 
 ## Contents
 
-> ### [Algorithms Part I](./src/algorithms/part/one)
+### 👉 [Algorithms Part I](./src/algorithms/part/one)
 
 - [Union Find](./src/algorithms/part/one/_1_unionfind)
     - [Quick Find](./src/algorithms/part/one/_1_unionfind/QuickFind.java)
@@ -39,7 +39,7 @@ examples.
         - [LinearProbing](./src/algorithms/part/one/_7_symboltable/unordered/LinearProbing.java)
         - [SeparateChaining](./src/algorithms/part/one/_7_symboltable/unordered/SeparateChaining.java)
 
-> ### [Algorithms Part II (In Progress)](./src/algorithms/part/two)
+### 👉 [Algorithms Part II (In Progress)](./src/algorithms/part/two)
 
 - Contain Graphs, DFS, BFS, Minimum Spanning Tree, Shorted Path, etc. Will be adding index once it is completed
 
