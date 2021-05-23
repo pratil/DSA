@@ -52,4 +52,4 @@ examples.
 - [ ] To practice and push the code for _Algorithms Part 2_
 - [ ] To add comments and Readme in every major package in _Algorithms Part 2_
 
-#### Big Thanks to Princeton University and all the people who worked together to make these two AMAZING Courses
+> #### :zap: Thanks to Princeton University and all the people who worked together to make these two AMAZING Courses
