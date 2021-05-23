@@ -6,10 +6,10 @@
 
 ## About the repository
 
-This is a collection of all the Data Structures & Algorithms that are taught in the above mentioned courses. I have
-tried to practice all the things that are taught, and then I have tried to compile all of it in a documented manner. I
-learned so many things even though I was familiar with the concepts but this course helped me think different. This
-course also helped me to understand the use of all the data structures and algorithms with the help of real life
+This is a collection of all the Data Structures & Algorithms that are taught in the above-mentioned courses. I have
+tried to practice all the things that are taught, and then I have tried to compile all of them in a documented manner. I
+learned so many things even though I was familiar with the concepts but this course helped me think differently. This
+course also helped me to understand the use of all the data structures and algorithms with the help of real-life
 examples.
 
 ## Contents
@@ -41,7 +41,7 @@ examples.
 
 ### 👉 [Algorithms Part II (In Progress)](./src/algorithms/part/two)
 
-- Contain Graphs, DFS, BFS, Minimum Spanning Tree, Shorted Path, etc. Will be adding index once it is completed
+- Contain Graphs, DFS, BFS, Minimum Spanning Tree, Shorted Path, etc. I will be adding index once it is completed
 
 ## Things Todo and their status
 
