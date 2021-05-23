@@ -5,6 +5,7 @@ import algorithms.part.one._2_bag.Bag;
 import algorithms.part.one._3_stack.Stack;
 import algorithms.part.one._4_queue.Queue;
 import algorithms.part.one._5_sort.*;
+import algorithms.part.one._5_sort.methods.*;
 import algorithms.part.one._6_binaryheap.MaxHeapTree;
 import algorithms.part.one._6_binaryheap.MinHeapTree;
 import algorithms.part.one._7_symboltable.ordered.BST;
@@ -44,6 +45,7 @@ public class Test {
             }
         }
 
+        // function to test Union Find Algorithms
         public static void unionFind(UnionFind unionFind, int countOfNodes) {
             unionFind(unionFind, countOfNodes, 5, 4);
         }
@@ -174,7 +176,7 @@ public class Test {
         // function to test QuickSort
         public static void studentQuickSort() {
             Sort<Student> quick = new Quick<>();
-            studentSort(quick, 1000);
+            studentSort(quick);
         }
 
         // function to test MaxHeapTree, a heap tree of students
