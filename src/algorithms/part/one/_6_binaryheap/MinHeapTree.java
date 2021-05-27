@@ -4,24 +4,31 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+// a child of Binary Heap Tree to implement Max Heap Tree
 public class MinHeapTree<P extends Comparable<P>> implements BinaryHeapTree<P> {
 
+    // array to store the elements in a virtual tree
     private final List<P> array;
 
+    // to initialize an empty array
     public MinHeapTree() {
         array = new ArrayList<>();
     }
 
+    // to initialize the array based on the given List and convert it into a Min Heap Tree
     public MinHeapTree(List<P> array) {
         this.array = array;
         for (int i = array.size() / 2; i > 1; i--)
             sink(i);
     }
 
+    // to initialize the array based on the given array and convert it into a Min Heap Tree
     public MinHeapTree(P[] array) {
         this(Arrays.asList(array));
     }
 
+    // function to swim an index from a heap position to it's upper positions if required
+    // i.e. if it is greater than it's child it should be moved up recursively in the heap
     @Override
     public void swim(int index) {
         if (index <= 1)
@@ -32,6 +39,8 @@ public class MinHeapTree<P extends Comparable<P>> implements BinaryHeapTree<P> {
         }
     }
 
+    // function to sink an index from a heap position to it's lower positions if required
+    // i.e. if it is greater than it's child it should be moved down recursively in the heap
     @Override
     public void sink(int index) {
         if (2 * index > array.size())
@@ -48,11 +57,13 @@ public class MinHeapTree<P extends Comparable<P>> implements BinaryHeapTree<P> {
         }
     }
 
+    // to get the root of the tree i.e. the top of the tree
     @Override
     public P peek() {
         return array.get(0);
     }
 
+    // to insert a new element in the tree
     @Override
     public P insert(P element) {
         array.add(element);
@@ -60,6 +71,7 @@ public class MinHeapTree<P extends Comparable<P>> implements BinaryHeapTree<P> {
         return element;
     }
 
+    // to delete an element from the tree
     @Override
     public P delete() {
         P minimum = peek();
@@ -69,11 +81,13 @@ public class MinHeapTree<P extends Comparable<P>> implements BinaryHeapTree<P> {
         return minimum;
     }
 
+    // to get the size of the tree
     @Override
     public int size() {
         return array.size();
     }
 
+    // to print the Heap (as i liked it 😁)
     @Override
     public String toString() {
         if (array.size() < 1)

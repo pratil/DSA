@@ -3,7 +3,7 @@ package algorithms.part.one._5_sort.methods;
 import algorithms.part.one._5_sort.Sort;
 
 // A child of Sort to implement Sorting array of generic objects using Heap sorting method
-// For thw whole code we will assume that the tree starts from 1 index till nth index
+// For the whole code we will assume that the tree starts from 1 index till nth index
 // This can be done by overriding the isLess(), isGreater() and swap() functions
 // And accessing the (i-1)th index instead of ith index i.e. instead of first and second we'll use first-1 & second-1
 public class Heap<P extends Comparable<P>> implements Sort<P> {
