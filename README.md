@@ -1,6 +1,6 @@
 # Data Structures and Algorithms (In Progress)
 
-> ### The course because of which this whole idea came up
+> ### The course because of which this whole project came up
 > - **_[Algorithms Part I](https://www.coursera.org/learn/algorithms-part1)_** offered by _**Princeton University**_
 > - **_[Algorithms Part II](https://www.coursera.org/learn/algorithms-part2)_** offered by _**Princeton University**_
 
