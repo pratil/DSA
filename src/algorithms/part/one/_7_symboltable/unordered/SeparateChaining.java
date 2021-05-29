@@ -4,38 +4,14 @@ import algorithms.part.one._7_symboltable.SymbolTable;
 
 import java.util.ArrayList;
 
+// It is one of the collision resolution techniques where if we find a collision on the index given by hashing
+// we create a Linked List and store the head in the index position
 public class SeparateChaining<Key, Value> implements SymbolTable<Key, Value> {
 
-    private class Node {
-        Key key;
-        Value value;
-        Node next;
+    private final int SIZE; // sine of the array
+    private final ArrayList<Node> hashArray; // list of nodes which will act as a hash array
 
-        public Node(Key key, Value value) {
-            this.key = key;
-            this.value = value;
-            next = null;
-        }
-
-        public Node(Key key, Value value, Node next) {
-            this.key = key;
-            this.value = value;
-            this.next = next;
-        }
-
-        @Override
-        public String toString() {
-            return "Node{" +
-                    "key=" + key +
-                    ", value=" + value +
-                    '}';
-        }
-    }
-
-    private final int SIZE;
-
-    private final ArrayList<Node> hashArray;
-
+    // to initialize the Symbol Table of the given size
     public SeparateChaining(int size) {
         SIZE = size;
         hashArray = new ArrayList<>(SIZE);
@@ -43,14 +19,17 @@ public class SeparateChaining<Key, Value> implements SymbolTable<Key, Value> {
             hashArray.add(null);
     }
 
+    // to initialize the Symbol Table for the default size
     public SeparateChaining() {
         this(9);
     }
 
+    // to get the hash value for the given key
     private int hash(Key key) {
         return (key.hashCode() & 0x7fffffff) % SIZE;
     }
 
+    // to get the value from the symbol table for the given key
     @Override
     public Value get(Key key) {
         int hash = hash(key);
@@ -60,6 +39,7 @@ public class SeparateChaining<Key, Value> implements SymbolTable<Key, Value> {
         return (pointer != null) ? pointer.value : null;
     }
 
+    // to set the value in the symbol table for the given key, to update or create a new entry
     @Override
     public void put(Key key, Value value) {
         int hash = hash(key);
@@ -75,6 +55,7 @@ public class SeparateChaining<Key, Value> implements SymbolTable<Key, Value> {
         hashArray.set(hash, pointer);
     }
 
+    // to print the hash array (as i liked it 😁)
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
@@ -93,5 +74,28 @@ public class SeparateChaining<Key, Value> implements SymbolTable<Key, Value> {
         stringBuilder.append("  }\n");
         stringBuilder.append("}");
         return stringBuilder.toString();
+    }
+
+    // Node to create a Linked List
+    private class Node {
+        Key key; // symbol table key
+        Value value; // symbol table value
+        Node next; // pointer to the next node
+
+        // to initialize a node
+        public Node(Key key, Value value, Node next) {
+            this.key = key;
+            this.value = value;
+            this.next = next;
+        }
+
+        // to print the hash array (as i liked it 😁)
+        @Override
+        public String toString() {
+            return "Node{" +
+                    "key=" + key +
+                    ", value=" + value +
+                    '}';
+        }
     }
 }

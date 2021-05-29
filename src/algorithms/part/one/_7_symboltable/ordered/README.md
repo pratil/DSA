@@ -1,7 +1,9 @@
-package algorithms.part.one._7_symboltable.ordered;
+# Ordered Symbol Table
 
-import algorithms.part.one._7_symboltable.SymbolTable;
+This is a form of symbol table where the way we store the data is dependent on the Keys. Keys need to be comparable, as
+the Ordered Symbol Table supports buck of operation based on the keys.
 
+```java
 // a skeleton to implement basic operation of Ordered Symbol Table
 // to implement a generic Key, Value pair, where Key will be comparable
 // and will support queries related to the order of keys
@@ -41,3 +43,4 @@ public interface OrderedSymbolTable<Key extends Comparable<Key>, Value> extends 
     Value delete(Key key);
 
 }
+```
