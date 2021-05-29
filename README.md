@@ -47,7 +47,7 @@ examples.
 
 - [x] ~~To study _Algorithms Part 1_~~
 - [x] ~~To practice and push the code for _Algorithms Part 1_~~
-- [ ] **To add comments and Readme in every major package in _Algorithms Part 1_** (In Progress)
+- [x] ~~To add comments and Readme in every major package in _Algorithms Part 1_~~
 - [ ] **To study _Algorithms Part 2_** (In Progress)
 - [ ] **To practice and push the code for _Algorithms Part 2_** (In Progress)
 - [ ] To add comments and Readme in every major package in _Algorithms Part 2_
