@@ -16,7 +16,7 @@ examples.
 
 > ### 👉 [Algorithms Part I](./src/algorithms/part/one)
 > - [Union Find](./src/algorithms/part/one/_1_unionfind)
-> - [Quick Find](./src/algorithms/part/one/_1_unionfind/QuickFind.java)
+>   - [Quick Find](./src/algorithms/part/one/_1_unionfind/QuickFind.java)
 >   - [Quick Union](./src/algorithms/part/one/_1_unionfind/QuickUnion.java)
 >   - [Weighted Quick Union](./src/algorithms/part/one/_1_unionfind/WeightedQuickUnion.java)
 >   - [Quick Union with Path Compression](./src/algorithms/part/one/_1_unionfind/QuickUnionWithPathCompression.java)
