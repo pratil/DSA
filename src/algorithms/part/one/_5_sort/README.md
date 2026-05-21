@@ -7,20 +7,18 @@
 > 👉 [Merge Sort](./methods/Merge.java)  
 > 👉 [Quick Sort](./methods/Quick.java)
 
-The basic layout for all the union find algorithms is similar:
+The basic layout for all the sorting algorithms is similar:
 
 - A function to Sort the generic array of objects in Ascending Order
 - A function to Sort the generic array of objects in Descending Order
 
-Also, some other Classes an Interface, and an Enum to help create sorting methods
+Also, some other Classes, an Interface, and an Enum to help create sorting methods
 
 - [Order](Order.java) - An enum to define the order in which we have to sort the array
 - [Sort](Sort.java) - An interface, Generic Sort parent for all the sorting algorithms
 - [Shuffle](Shuffle.java) - A class to shuffle the list of generic array of objects
 - [NotSortedException](NotSortedException.java) - An exception which is raised when array is not sorted
 - [StopWatch](StopWatch.java) - A class to calculate the time difference between a block/line of code
-
-_**Sort**: A class to calculate the time difference between a block/line of code_
 
 ```java
 // java interface

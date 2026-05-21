@@ -3,6 +3,7 @@ package algorithms.part.one._6_binaryheap;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.PriorityQueue;
 
 // a child of Binary Heap Tree to implement Max Heap Tree
 public class MaxHeapTree<P extends Comparable<P>> implements BinaryHeapTree<P> {
@@ -13,6 +14,7 @@ public class MaxHeapTree<P extends Comparable<P>> implements BinaryHeapTree<P> {
     // to initialize an empty array
     public MaxHeapTree() {
         array = new ArrayList<>();
+        PriorityQueue<P> priorityQueue = new PriorityQueue<>();
     }
 
     // to initialize the array based on the given List and convert it into a Max Heap Tree

@@ -17,23 +17,19 @@ public class Heap<P extends Comparable<P>> implements Sort<P> {
     // overriding the function to tweak it as mentioned above in the comments
     @Override
     public boolean isGreater(P[] array, int first, int second) {
-        return compare(array, first - 1, second - 1) > 0;
+        return Sort.super.isGreater(array, first - 1, second - 1);
     }
 
     // overriding the function to tweak it as mentioned above in the comments
     @Override
     public boolean isLess(P[] array, int first, int second) {
-        return compare(array, first - 1, second - 1) < 0;
+        return Sort.super.isLess(array, first-1, second-1);
     }
 
     // overriding the function to tweak it as mentioned above in the comments
     @Override
     public void swap(P[] array, int first, int second) {
-        first--;
-        second--;
-        P temp = array[first];
-        array[first] = array[second];
-        array[second] = temp;
+        Sort.super.swap(array, first-1, second-1);
     }
 
     // function to sink an index from the heap, i.e. if it is greater than it's child it should be moved down recursively
